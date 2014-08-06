@@ -9,8 +9,8 @@
   "keywords": [
   ],
   "dependencies": {
-    "gulp-util": "~2.2.5",
-    "requirejs": "2.1.8"
+    "gulp-util": "3.0.0",
+    "requirejs": "2.1.14"
   },
   "devDependencies": {
     "mocha": "*",
