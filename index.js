@@ -1,8 +1,6 @@
 var gutil       = require('gulp-util'),
     requirejs   = require('requirejs'),
-    PluginError = gutil.PluginError,
-    File        = gutil.File,
-    es          = require('event-stream')
+    PluginError = gutil.PluginError
 
 // Consts
 const PLUGIN_NAME = 'gulp-requirejs';
@@ -25,8 +23,6 @@ module.exports = function(opts) {
     }
 
     // create the stream and save the file name (opts.out will be replaced by a callback function later)
-    var _s     = es.pause(),
-        _fName = opts.out;
 
     // just a small wrapper around the r.js optimizer, we write a new gutil.File (vinyl) to the Stream, mocking a file, which can be handled
     // regular gulp plugins (i hope...).
@@ -40,7 +36,7 @@ module.exports = function(opts) {
 
 
     // return the stream for chain .pipe()ing
-    return _s;
+    return;
 }
 
 // a small wrapper around the r.js optimizer
