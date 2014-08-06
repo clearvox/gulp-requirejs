@@ -30,28 +30,21 @@ module.exports = function(opts) {
 
     // just a small wrapper around the r.js optimizer, we write a new gutil.File (vinyl) to the Stream, mocking a file, which can be handled
     // regular gulp plugins (i hope...).
-    
-    // try {
-        optimize(opts, function(text) {
-            _s.resume();
-            _s.end(new File({
-                path: _fName,
-                contents: new Buffer(text)
-            }));
-        });
-    // } catch (err) {
-    //     _s.emit('error', err);
-    // }
 
-    
+//     try {
+        optimize(opts);
+//     } catch (err) {
+//         _s.emit('error', err);
+//     }
+
+
 
     // return the stream for chain .pipe()ing
     return _s;
 }
 
 // a small wrapper around the r.js optimizer
-function optimize(opts, cb) {
-    opts.out = cb;
-    opts.optimize = 'none';
+function optimize(opts) {
+    console.log('optimizing for requireJs');
     requirejs.optimize(opts);
 }
